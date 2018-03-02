@@ -3,6 +3,8 @@ jobs:
   test:
     docker:
       - image: debian:stretch
+    environment:
+      - PATH: ~/roswel/bin:/usr/local/bin:$PATH
     steps:
       - checkout
       - run: curl -L https://raw.githubusercontent.com/roswell/roswell/master/scripts/install-for-ci.sh | sh
