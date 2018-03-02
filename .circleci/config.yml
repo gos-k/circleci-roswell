@@ -5,13 +5,18 @@ jobs:
       - image: debian:stretch
     steps:
       - checkout
-      - run:
-          name: install roswell
-          command: curl -L https://raw.githubusercontent.com/roswell/roswell/master/scripts/install-for-ci.sh | sh
-      - run:
-          name: roswell version
-          command: ros --version
-      - run:
-          name: lisp version
-          command: ros run -- --version
+      - run: curl -L https://raw.githubusercontent.com/roswell/roswell/master/scripts/install-for-ci.sh | sh
+  test:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run: ros --version
+      - run: ros run -- --version
 
+workflows:
+  version: 2
+  build_and_tes:
+    jobs:
+      - build
+      - test
