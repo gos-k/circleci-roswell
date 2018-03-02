@@ -1,14 +1,17 @@
-machine:
-    environment:
-        LISP: sbcl-bin
-        PATH: ~/.roswell/bin:$PATH
-        CXX: clang++
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run:
+          name: install roswell
+          command: curl -L https://raw.githubusercontent.com/roswell/roswell/master/scripts/install-for-ci.sh | sh
+      - run:
+          name: roswell version
+          command: ros --version
+      - run:
+          name: lisp version
+          command: ros run -- --version
 
-checkout:
-    pre:
-        - curl -L https://raw.githubusercontent.com/roswell/roswell/master/scripts/install-for-ci.sh | sh
-
-test:
-    override:
-        - ros --version
-        - ros run -- --version
