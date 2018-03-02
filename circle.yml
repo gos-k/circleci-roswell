@@ -1,0 +1,19 @@
+machine:
+    environment:
+        LISP: sbcl-bin/1.3.21
+        PATH: ~/.roswell/bin:$PATH
+        CXX: clang++
+
+checkout:
+    pre:
+        - curl -L https://raw.githubusercontent.com/roswell/roswell/master/scripts/install-for-ci.sh | sh
+
+
+dependencies:
+    pre:
+        - ./configure && make && sudo make install
+
+test:
+    override:
+        - ros --version
+        - ros run -- --version
