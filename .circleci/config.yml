@@ -7,7 +7,6 @@ jobs:
       - PATH: ~/roswel/bin:/usr/local/bin:$PATH
     steps:
       - checkout
-      - run: apt-get install curl sh
       - run: curl -L https://raw.githubusercontent.com/roswell/roswell/master/scripts/install-for-ci.sh | sh
       - run: ros --version
       - run: ros run -- --version
