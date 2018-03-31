@@ -1,0 +1,10 @@
+machine:
+  environmen:
+    PATH: ~/.roswell/bin:$PATH
+
+dependencies:
+  pre:
+    - curl -L https://raw.githubusercontent.com/roswell/roswell/release/scripts/install-for-ci.sh | sh
+    - ros --version
+    - ros setup
+    - ros run -- --version
