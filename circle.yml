@@ -4,7 +4,15 @@ machine:
 
 dependencies:
   pre:
-    - curl -L https://raw.githubusercontent.com/roswell/roswell/release/scripts/install-for-ci.sh | sh
+    - |
+      if [ ! -e /usr/local/bin/ros ]; then
+        curl -L https://raw.githubusercontent.com/roswell/roswell/release/scripts/install-for-ci.sh | sh
+      fi
+
+  cache_directories:
+    - /usr/local/bin
+    - ~/.roswell/
+    - ~/.config/common-lisp
 
 test:
   override:
