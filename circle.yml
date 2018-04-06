@@ -1,16 +1,17 @@
 machine:
   environmen:
-    PATH: ~/.roswell/bin:$PATH
+    PATH: $HOME/.local/bin:$HOME/.roswell/bin:$PATH
+    ROSWELL_INSTALL_DIR=$HOME/.local
 
 dependencies:
   pre:
     - |
-      if [ ! -e /usr/local/bin/ros ]; then
+      if [ ! -e $HOME/.local/bin/ros ]; then
         curl -L https://raw.githubusercontent.com/roswell/roswell/release/scripts/install-for-ci.sh | sh
       fi
 
   cache_directories:
-    - /usr/local/bin
+    - ~/.local
     - ~/.roswell/
     - ~/.config/common-lisp
 
