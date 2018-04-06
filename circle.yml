@@ -1,7 +1,7 @@
-machine:
+]machine:
   environmen:
     PATH: $HOME/.local/bin:$HOME/.roswell/bin:$PATH
-    ROSWELL_INSTALL_DIR=$HOME/.local
+    ROSWELL_INSTALL_DIR: $HOME/.local
 
 dependencies:
   pre:
