@@ -13,7 +13,7 @@ dependencies:
   cache_directories:
     - ~/.local
     - ~/.roswell/
-    - ~/.config/common-lisp
+    - ~/.cache/common-lisp
 
 test:
   override:
