@@ -1,12 +1,12 @@
 machine:
-  environmen:
+  environmet:
     PATH: $HOME/.local/bin:$HOME/.roswell/bin:$PATH
     ROSWELL_INSTALL_DIR: $HOME/.local
 
 dependencies:
   pre:
     - |
-      if [ ! -e $HOME/.local/bin/ros ]; then
+      if [ ! -e "$ROSWELL_INSTALL_DIR/bin/ros" ]; then
         curl -L https://raw.githubusercontent.com/roswell/roswell/release/scripts/install-for-ci.sh | sh
       fi
 
