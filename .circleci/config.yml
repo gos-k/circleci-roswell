@@ -6,3 +6,4 @@ jobs:
     steps:
       - run: curl -L https://raw.githubusercontent.com/roswell/roswell/release/scripts/install-for-ci.sh | sh
       - run: ros run -q
+      - run: ros install clasp
